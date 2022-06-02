@@ -8,7 +8,7 @@ class ClienteForm(forms.Form):
 
 class ContactoForm(forms.Form):
     nombre = forms.CharField(label="Nombre", max_length=100)
-    email = forms.EmailField  
+    email = forms.EmailField()
 
 class EquipoForm(forms.Form):
     equipo = forms.CharField(label="Nombre", max_length=100)

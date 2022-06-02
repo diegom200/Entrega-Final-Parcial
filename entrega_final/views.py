@@ -8,7 +8,7 @@ from django.template import loader
 # Create your views here.
 
 def inicio(request):
-    return render(request, '/Users/m200/ProyectoFinal/entrega_final/templates/plantillas_final/inicio.html/')
+    return render(request, 'plantillas_final/inicio.html/')
 
 def agregar(request):
     if request.method == "POST":
