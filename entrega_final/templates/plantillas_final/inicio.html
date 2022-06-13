@@ -27,19 +27,25 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-4">
+
+        <div class="col-sm">
+          {% url 'inicio' as inicio_url %}
+          {% bootstrap_button "Inicio" button_class="btn-success" button_type="link" href=inicio_url %}
+        </div>
+
+        <div class="col-sm">
           {% url 'equipo' as equipo_url %}
           {% bootstrap_button "Equipo" button_class="btn-success" button_type="link" href=equipo_url %}
         </div>
 
 
-        <div class="col-4">
+        <div class="col-sm">
           {% url 'cliente' as cliente_url %}
           {% bootstrap_button "Cliente" button_class="btn-success" button_type="link" href=cliente_url %}
         </div>
 
 
-        <div class="col-4">
+        <div class="col-sm">
           {% url 'contacto' as contacto_url %}
           {% bootstrap_button "Contacto" button_class="btn-success" button_type="link" href=contacto_url %}
         </div>
@@ -62,6 +68,7 @@
   </div>
   
 </body>
+
 
 
 <!-- <esto es el pie/ footer > -->

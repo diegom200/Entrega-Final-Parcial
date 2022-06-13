@@ -4,7 +4,7 @@ from entrega_final import views
 
 urlpatterns = [
 
-    path('', views.inicio, name='Inicio'),
+    path('', views.inicio, name='inicio'),
     path('agregar/', views.agregar, name='agregar'),
     path('borrar/<identificador>', views.borrar, name='borrar'),
     path('cliente/', views.cliente, name='cliente'),

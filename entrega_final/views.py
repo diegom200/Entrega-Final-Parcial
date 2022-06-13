@@ -8,7 +8,7 @@ from django.template import loader
 # Create your views here.
 
 def inicio(request):
-    return render(request, 'plantillas_final/inicio.html/')
+    return render(request, 'plantillas_final/bienvenida.html/')
 
 def agregar(request):
     if request.method == "POST":
@@ -62,8 +62,8 @@ def contacto(request):
         form = ContactoForm(request.POST)
         if form.is_valid():
 
-            nombre = form.cleaned_data['razon_social']
-            email = form.cleaned_data['id_cliente']
+            nombre = form.cleaned_data['nombre']
+            email = form.cleaned_data['email']
             Contacto(nombre=nombre, email=email).save()
 
             return HttpResponseRedirect('/entrega_final/')
