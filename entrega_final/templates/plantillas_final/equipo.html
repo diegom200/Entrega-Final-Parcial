@@ -1,0 +1,35 @@
+{% extends "plantillas_final/inicio.html" %}
+
+
+{% load bootstrap5 %}
+
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+
+{% block cuerpo %}
+
+
+<div class="container">
+   <div class="row">
+     <div class="col">
+      <h1>CARGAR UN EQUIPO</h1>
+     </div>
+     </div>
+     <dov class="row">
+     <div class="col">
+      <form action="{% url 'equipo'%}" method="post">
+         {% csrf_token %} 
+         {% bootstrap_form form %}
+         {% bootstrap_button "Guardar" button_type="submit" button_class="btn-primary" %}
+      </form>
+     </div>
+   </div>
+ </div>
+ {% endblock %}

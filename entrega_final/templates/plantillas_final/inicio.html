@@ -1,13 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  holis
+{% load bootstrap5 %}
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+<!-- <esto es la cabecera/header> -->
+<body id="page-top">
+
+
+  <!-- Navigation-->
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="navbar-header">
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Header-->
+  <header class="bg-light">
+    <div class="container px-4 text-center">
+        <h1 class="fw-bolder"></h1>
+        <p class="lead"></p>
+    </div><br>
+
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-sm">
+          {% url 'inicio' as inicio_url %}
+          {% bootstrap_button "Inicio" button_class="btn-success" button_type="link" href=inicio_url %}
+        </div>
+
+        <div class="col-sm">
+          {% url 'equipo' as equipo_url %}
+          {% bootstrap_button "Equipo" button_class="btn-success" button_type="link" href=equipo_url %}
+        </div>
+
+
+        <div class="col-sm">
+          {% url 'cliente' as cliente_url %}
+          {% bootstrap_button "Cliente" button_class="btn-success" button_type="link" href=cliente_url %}
+        </div>
+
+
+        <div class="col-sm">
+          {% url 'contacto' as contacto_url %}
+          {% bootstrap_button "Contacto" button_class="btn-success" button_type="link" href=contacto_url %}
+        </div>
+      </div><br>
+    </div>
+
+
+  </header><br>
+
+
+  <div class="section">
+
+
+  {% block  cuerpo %}
+  
+  {% endblock %}
+  
+  {# Display django.contrib.messages as Bootstrap alerts #}
+  {% bootstrap_messages %}
+  </div>
   
 </body>
-</html>
+
+
+
+<!-- <esto es el pie/ footer > -->
+<footer class="bg-dark fixed-bottom">
+  <div class="container-fluid">
+    <div class="navbar-default">
+    </div>
+  </div>
+</footer>
