@@ -1,0 +1,62 @@
+{% extends "plantillas_final/inicio.html" %}
+
+
+{% load bootstrap5 %}
+
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+
+
+
+{% block cuerpo %}
+
+<header class="bg-light">
+    <div class="container px-4 text-center">
+        <h1 class="fw-bolder"></h1>
+        <p class="lead"></p>
+    </div><br>
+
+  </header><br>
+
+<h1 style="text-align:center">Pagina de contactos</h1>
+
+<footer class="bg-dark fixed-bottom">
+    <div class="container-fluid">
+      <div class="navbar-default">
+
+        <div class="container">
+            <div class="row">
+
+      
+              <div class="col-sm">
+                {% url 'contacto' as contacto_url %}
+                {% bootstrap_button "Agregar" button_class="btn-success"  button_type="link" href=contacto_url %}
+              </div>
+      
+              <div class="col-sm">
+                {% url 'buscar_contacto' as buscar_contacto_url %}
+                {% bootstrap_button "Buscar" button_class="btn-success" button_type="link" href=buscar_contacto_url %}
+              </div>
+      
+      
+              <div class="col-sm">
+                {% url 'lista_contactos' as lista_contactos_url %}
+                {% bootstrap_button "Lista" button_class="btn-success" button_type="link" href=lista_contactos_url %}
+              </div>
+      
+      
+              </div>
+            </div><br>
+          </div>
+      </div>
+    </div>
+  </footer>
+
+ {% endblock %}
