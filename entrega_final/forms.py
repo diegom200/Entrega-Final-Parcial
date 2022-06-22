@@ -13,3 +13,21 @@ class ContactoForm(forms.Form):
 class EquipoForm(forms.Form):
     equipo = forms.CharField(label="Equipo", max_length=100)
     serie = forms.CharField(label="Serie", max_length=100)
+
+class BuscarClienteForm(forms.Form):
+    palabra_a_buscar = forms.CharField(label="Buscar")
+
+class BuscarContactoForm(forms.Form):
+    palabra_a_buscar = forms.CharField(label="Buscar")
+
+class BuscarEquipoForm(forms.Form):
+    palabra_a_buscar = forms.CharField(label="Buscar")
+
+class ActualizarClienteForm(ClienteForm):
+    id = forms.IntegerField(widget = forms.HiddenInput())
+
+class ActualizarClienteForm(ClienteForm):
+    id = forms.IntegerField(widget = forms.HiddenInput())
+
+class ActualizarClienteForm(ClienteForm):
+    id = forms.IntegerField(widget = forms.HiddenInput())

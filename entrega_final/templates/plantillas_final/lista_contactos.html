@@ -1,0 +1,55 @@
+{% extends "plantillas_final/inicio.html" %}
+
+{% load bootstrap5 %}
+
+
+{% block cuerpo %}
+<div class="container">    
+
+  {% if resultados_busqueda %}
+    <h1>Resultados de la busqueda</h1>
+  {%endif%}
+  
+  <div class="row">
+    <div class="col">
+      {% url 'buscar_contacto' as buscar_contacto_url %}
+      {% bootstrap_button "Buscar" button_class="btn-success" button_type="link" href=buscar_contacto_url %}  
+    <div>
+  <div>
+
+  <div class="row">
+    <div class="col">
+        {% if contactos %}
+        <table class="table">
+            <thead>
+                <th scope="col">Identificador</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Email</th>
+                <th scope="col">Acciones</th>
+            </thead>
+        
+            {% for p in contactos %}
+            <tbody>
+                <tr>
+                    <th scope="row">{{p.id}} </th>
+                    <td> {{p.nombre}} </td>
+                    <td> {{p.email}} </td>
+
+                    <td>
+                      {% url 'borrar_contacto' identificador=p.id as borrar_contacto_url %}
+                      {% url 'actualizar_contacto' identificador=p.id as actualizar_contacto_url %} 
+                      {% bootstrap_button "Borrar" size="sm" button_class="btn-danger" button_type="link" href=borrar_contacto_url %}
+                      {% bootstrap_button "Actualizar" size="sm" button_class="btn-warning" button_type="link" href=actualizar_contacto_url %}
+
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>No tienes contactos cargados</p>
+        {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

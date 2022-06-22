@@ -34,20 +34,20 @@
         </div>
 
         <div class="col-sm">
-          {% url 'equipo' as equipo_url %}
-          {% bootstrap_button "Equipo" button_class="btn-success" button_type="link" href=equipo_url %}
+          {% url 'index_equipo' as index_equipo_url %}
+          {% bootstrap_button "Equipo" button_class="btn-success" button_type="link" href=index_equipo_url %}
         </div>
 
 
         <div class="col-sm">
-          {% url 'cliente' as cliente_url %}
-          {% bootstrap_button "Cliente" button_class="btn-success" button_type="link" href=cliente_url %}
+          {% url 'index_cliente' as index_cliente_url %}
+          {% bootstrap_button "Cliente" button_class="btn-success" button_type="link" href=index_cliente_url %}
         </div>
 
 
         <div class="col-sm">
-          {% url 'contacto' as contacto_url %}
-          {% bootstrap_button "Contacto" button_class="btn-success" button_type="link" href=contacto_url %}
+          {% url 'index_contacto' as index_contacto_url %}
+          {% bootstrap_button "Contacto" button_class="btn-success" button_type="link" href=index_contacto_url %}
         </div>
       </div><br>
     </div>

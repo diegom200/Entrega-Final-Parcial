@@ -1,0 +1,55 @@
+{% extends "plantillas_final/inicio.html" %}
+
+{% load bootstrap5 %}
+
+
+{% block cuerpo %}
+<div class="container">    
+
+  {% if resultados_busqueda %}
+    <h1>Resultados de la busqueda</h1>
+  {%endif%}
+  
+  <div class="row">
+    <div class="col">
+      {% url 'buscar_cliente' as buscar_cliente_url %}
+      {% bootstrap_button "Buscar" button_class="btn-success" button_type="link" href=buscar_cliente_url %}  
+    <div>
+  <div>
+
+  <div class="row">
+    <div class="col">
+        {% if clientes %}
+        <table class="table">
+            <thead>
+                <th scope="col">Identificador</th>
+                <th scope="col">Razon Social</th>
+                <th scope="col">Id Cliente</th>
+                <th scope="col">Acciones</th>
+            </thead>
+        
+            {% for p in clientes %}
+            <tbody>
+                <tr>
+                    <th scope="row">{{p.id}} </th>
+                    <td> {{p.razon_social}} </td>
+                    <td> {{p.id_cliente}} </td>
+
+                    <td>
+                      {% url 'borrar_cliente' identificador=p.id as borrar_cliente_url %}
+                      {% url 'actualizar_cliente' identificador=p.id as actualizar_cliente_url %} 
+                      {% bootstrap_button "Borrar" size="sm" button_class="btn-danger" button_type="link" href=borrar_cliente_url %}
+                      {% bootstrap_button "Actualizar" size="sm" button_class="btn-warning" button_type="link" href=actualizar_cliente_url %}
+
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>No tienes clientes cargados</p>
+        {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

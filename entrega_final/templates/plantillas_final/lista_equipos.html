@@ -1,0 +1,55 @@
+{% extends "plantillas_final/inicio.html" %}
+
+{% load bootstrap5 %}
+
+
+{% block cuerpo %}
+<div class="container">    
+
+  {% if resultados_busqueda %}
+    <h1>Resultados de la busqueda</h1>
+  {%endif%}
+  
+  <div class="row">
+    <div class="col">
+      {% url 'buscar_equipo' as buscar_equipo_url %}
+      {% bootstrap_button "Buscar" button_class="btn-success" button_type="link" href=buscar_equipo_url %}  
+    <div>
+  <div>
+
+  <div class="row">
+    <div class="col">
+        {% if equipos %}
+        <table class="table">
+            <thead>
+                <th scope="col">Identificador</th>
+                <th scope="col">Equipo</th>
+                <th scope="col">Serie</th>
+                <th scope="col">Acciones</th>
+            </thead>
+        
+            {% for p in equipos %}
+            <tbody>
+                <tr>
+                    <th scope="row">{{p.id}} </th>
+                    <td> {{p.equipo}} </td>
+                    <td> {{p.serie}} </td>
+
+                    <td>
+                      {% url 'borrar_equipo' identificador=p.id as borrar_equipo_url %}
+                      {% url 'actualizar_equipo' identificador=p.id as actualizar_equipo_url %} 
+                      {% bootstrap_button "Borrar" size="sm" button_class="btn-danger" button_type="link" href=borrar_equipo_url %}
+                      {% bootstrap_button "Actualizar" size="sm" button_class="btn-warning" button_type="link" href=actualizar_equipo_url %}
+
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+        {% else %}
+            <p>No tienes equipos cargados</p>
+        {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
