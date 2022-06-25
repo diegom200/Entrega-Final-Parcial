@@ -24,7 +24,7 @@ urlpatterns = [
     path('lista_clientes/', views.lista_clientes, name='lista_clientes'),
     path('lista_contactos/', views.lista_contactos, name='lista_contactos'),
     path('lista_equipos/', views.lista_equipos, name='lista_equipos'),
-    path('login', views.login_request, name='login'),
+    path("entrar/", views.Login.as_view(), name="login"),
     path('register', views.register, name = 'register'),
     path('logout', LogoutView.as_view(template_name='plantillas_final/logout.html'), name='logout'),
 

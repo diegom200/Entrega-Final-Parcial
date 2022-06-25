@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'entrega_final.apps.EntregaFinalConfig',
-    'bootstrap5'
+    'bootstrap5',
+    'logapp.apps.logappConfig',
+
 ]
 
 MIDDLEWARE = [
