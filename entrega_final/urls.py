@@ -1,11 +1,12 @@
 from django.urls import path
-from entrega_final import views
+from entrega_final import views, models
 from django.contrib.auth.views import LogoutView, LoginView
 
 
 urlpatterns = [
 
     path('', views.inicio, name='inicio'),
+    path('welcome/', views.welcome, name='welcome'),
     path('borrar_cliente/<identificador>', views.borrar_cliente, name='borrar_cliente'),
     path('borrar_contacto/<identificador>', views.borrar_contacto, name='borrar_contacto'),
     path('borrar_equipo/<identificador>', views.borrar_equipo, name='borrar_equipo'),
@@ -27,6 +28,7 @@ urlpatterns = [
     path("entrar/", views.Login.as_view(), name="login"),
     path('register', views.register, name = 'register'),
     path('logout', LogoutView.as_view(template_name='plantillas_final/logout.html'), name='logout'),
+    path('base', views.BlogBase.as_view(), name='base')
 
     
 ]

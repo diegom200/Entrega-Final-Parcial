@@ -17,7 +17,10 @@ from django.contrib.messages.views import SuccessMessageMixin
 # Create your views here.
 
 def inicio(request):
-    return render(request, 'plantillas_final/bienvenida.html/')
+    return render(request, 'plantillas_final/base.html/')
+
+def welcome(request):
+    return render(request, 'plantillas_final/inicio.html' )
 
 def cliente(request):
     if request.method == "POST":
@@ -184,7 +187,7 @@ class BlogBase(ListView):
 
 class Login(LoginView):
     template_name = 'plantillas_final/login.html'
-    next_page = reverse_lazy('bienvenida')
+    next_page = reverse_lazy('inicio')
 
 class Logout(LogoutView):
     template_name = 'plantillas_final/logout.html'
