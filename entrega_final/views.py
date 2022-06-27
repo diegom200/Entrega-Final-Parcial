@@ -129,15 +129,6 @@ def buscar_equipo(request):
         form_busqueda = BuscarClienteForm()
         return render(request, 'plantillas_final/buscar_equipo.html', {"form_busqueda": form_busqueda})
 
-def actualizar_cliente(request, identificador):
-    pass
-
-def actualizar_contacto(request, identificador):
-    pass
-
-def actualizar_equipo(request, identificador):
-    pass
-
 def index_cliente(request):
     return render(request, 'plantillas_final/index_cliente.html')
 

@@ -12,9 +12,6 @@ urlpatterns = [
     path('buscar_cliente/', views.buscar_cliente, name='buscar_cliente'),
     path('buscar_contacto/', views.buscar_contacto, name='buscar_contacto'),
     path('buscar_equipo/', views.buscar_equipo, name='buscar_equipo'),
-    path('actualizar_cliente/<identificador>', views.actualizar_cliente, name='actualizar_cliente'),
-    path('actualizar_contacto/<identificador>', views.actualizar_contacto, name='actualizar_contacto'),
-    path('actualizar_equipo/<identificador>', views.actualizar_equipo, name='actualizar_equipo'),
     path('cliente/', views.cliente, name='cliente'),
     path('contacto/', views.contacto, name='contacto'),
     path('equipo/', views.equipo, name='equipo'),
@@ -27,8 +24,7 @@ urlpatterns = [
     path('login', views.login_request, name='login'),
     path('register', views.register, name = 'register'),
     path('logout', LogoutView.as_view(template_name='plantillas_final/logout.html'), name='logout'),
-
-    
+      
 ]
 
 
