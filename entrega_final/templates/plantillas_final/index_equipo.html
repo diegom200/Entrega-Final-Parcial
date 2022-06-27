@@ -25,7 +25,7 @@
 
   </header><br>
 
-<h1 style="text-align:center">Pagina de contactos</h1>
+<h1 style="text-align:center">Pagina de equipos</h1>
 
 <footer class="bg-dark fixed-bottom">
     <div class="container-fluid">
@@ -36,19 +36,19 @@
 
       
               <div class="col-sm">
-                {% url 'contacto' as contacto_url %}
+                {% url 'equipo' as equipo_url %}
                 {% bootstrap_button "Agregar" button_class="btn-success"  button_type="link" href=contacto_url %}
               </div>
       
               <div class="col-sm">
-                {% url 'buscar_contacto' as buscar_contacto_url %}
-                {% bootstrap_button "Buscar" button_class="btn-success" button_type="link" href=buscar_contacto_url %}
+                {% url 'buscar_equipo' as buscar_equipo_url %}
+                {% bootstrap_button "Buscar" button_class="btn-success" button_type="link" href=buscar_equipo_url %}
               </div>
       
       
               <div class="col-sm">
-                {% url 'lista_contactos' as lista_contactos_url %}
-                {% bootstrap_button "Lista" button_class="btn-success" button_type="link" href=lista_contactos_url %}
+                {% url 'lista_equipos' as lista_equipos_url %}
+                {% bootstrap_button "Lista" button_class="btn-success" button_type="link" href=lista_equipos_url %}
               </div>
       
       
