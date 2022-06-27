@@ -1,15 +1,19 @@
 # Entrega-Final-Parcial
 
-Tenemos un proyecto llamado Proyecto Final
-El proyecto tiene una app llamada Entrega Final
-Dentro de la app en models presentamos 3 clases: Cliente, Contacto y Equipo
+Buenas!
+Somos Dario Salcedo y Diego Morales, integrantes de la comision de Python 36585
+Creamos el Proyecto Final. Consta de dos aplicaciones:
+Una llamada Entrega Final. Originalmente pensamos los modelos Cliente, Contacto y Equipos. 
+Luego intentamos darle una forma de blog dentro de lo que pudimos.
 
-Actualmente conseguimos llegar a la pantalla de Inicio y poder agregar un conacto.
-Queda guardado en la base y retorna a la pantalla de Inicio
+Hay una segunda app, que se encuentra relacionada con la primera, para poder logearse y tener acceso a la info proporcionada por los modelos previamente mencionados.
 
+Nuestra app puede crear nuevos modelos desde la consola de Admin de Django. 
+Desde consola BASH se puede llamar a una clase para trabajar con ella. Incluso registrar nuevos valores dentro de las clases (Cliente, Contacto y Equipos) y que queden almacenadas en la base de datos.
 
-## RESTA:
+Esto se comprobo utilizando DB Browser for SQLite. Herramienta de gestion de base de datos que nos permite comprobar que los registros queden guardados.
 
- - Visualizar y realizar la herencia en las plantillas
- - Crear formularios para las dos clases restantes
- - Formulario para buscar en BD
+Por cuestiones de tiempo tuvimos que repartir tareas. Dario se encargo de las vistas y plantillas HTML.
+Diego la app Logapp y unio las ramas. 
+Es un resumen muy g
+

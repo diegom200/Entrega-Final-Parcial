@@ -22,6 +22,9 @@ def inicio(request):
 def welcome(request):
     return render(request, 'plantillas_final/inicio.html' )
 
+def about(request):
+    return render(request, 'plantillas_final/about.html/')
+
 def cliente(request):
     if request.method == "POST":
         form = ClienteForm(request.POST)
