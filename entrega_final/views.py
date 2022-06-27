@@ -1,18 +1,26 @@
 
+from curses.ascii import US
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
-from entrega_final.models import Cliente, Contacto, Equipo
+from entrega_final.models import BlogModel, Cliente, Contacto, Equipo
 from entrega_final.forms import *
 from django.template import loader
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.views import LoginView, LogoutView
+from django.views.generic import CreateView, UpdateView, DetailView, ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
+from django.contrib.messages.views import SuccessMessageMixin
 
 # Create your views here.
 
 def inicio(request):
-    return render(request, 'plantillas_final/bienvenida.html/')
+    return render(request, 'plantillas_final/base.html/')
+
+def welcome(request):
+    return render(request, 'plantillas_final/inicio.html' )
 
 def cliente(request):
     if request.method == "POST":
@@ -171,9 +179,16 @@ def register(request):
 
     return render(request, "plantillas_final/registro.html", {'form': form})
 
+class BlogBase(ListView):
+
+    model = BlogModel
+    template_name = "plantillas_final/base.html"
+
+
 class Login(LoginView):
     template_name = 'plantillas_final/login.html'
-    next_page = reverse_lazy('bienvenida')
+    next_page = reverse_lazy('inicio')
 
 class Logout(LogoutView):
     template_name = 'plantillas_final/logout.html'
+
