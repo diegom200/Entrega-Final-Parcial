@@ -37,9 +37,7 @@
 
                     <td>
                       {% url 'borrar_equipo' identificador=p.id as borrar_equipo_url %}
-                      {% url 'actualizar_equipo' identificador=p.id as actualizar_equipo_url %} 
                       {% bootstrap_button "Borrar" size="sm" button_class="btn-danger" button_type="link" href=borrar_equipo_url %}
-                      {% bootstrap_button "Actualizar" size="sm" button_class="btn-warning" button_type="link" href=actualizar_equipo_url %}
 
                     </td>
                 </tr>
