@@ -37,9 +37,7 @@
 
                     <td>
                       {% url 'borrar_cliente' identificador=p.id as borrar_cliente_url %}
-                      {% url 'actualizar_cliente' identificador=p.id as actualizar_cliente_url %} 
                       {% bootstrap_button "Borrar" size="sm" button_class="btn-danger" button_type="link" href=borrar_cliente_url %}
-                      {% bootstrap_button "Actualizar" size="sm" button_class="btn-warning" button_type="link" href=actualizar_cliente_url %}
 
                     </td>
                 </tr>

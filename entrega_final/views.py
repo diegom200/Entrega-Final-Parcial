@@ -80,7 +80,7 @@ def borrar_cliente(request, identificador):
         cliente = Cliente.objects.filter(id=int(identificador)).first()
         if cliente:
             cliente.delete()
-        return HttpResponseRedirect("plantillas_final/bienvenida.html/")
+        return HttpResponseRedirect("/entrega_final/")
     else:
         return HttpResponseBadRequest("Error no conzco ese metodo para esta request")
 
@@ -90,7 +90,7 @@ def borrar_contacto(request, identificador):
         contacto = Contacto.objects.filter(id=int(identificador)).first()
         if contacto:
             contacto.delete()
-        return HttpResponseRedirect("plantillas_final/bienvenida.html/")
+        return HttpResponseRedirect("/entrega_final/")
     else:
         return HttpResponseBadRequest("Error no conzco ese metodo para esta request")
 
@@ -100,27 +100,43 @@ def borrar_equipo(request, identificador):
         equipo = Equipo.objects.filter(id=int(identificador)).first()
         if equipo:
             equipo.delete()
-        return HttpResponseRedirect("plantillas_final/bienvenida.html/")
+        return HttpResponseRedirect("/entrega_final/")
     else:
         return HttpResponseBadRequest("Error no conzco ese metodo para esta request")
 
 def buscar_cliente(request):
-    pass
+    if request.GET.get("palabra_a_buscar") and request.method == "GET":
+        form_busqueda = BuscarClienteForm(request.GET)
+        if form_busqueda.is_valid():
+            clientes = Cliente.objects.filter(razon_social__icontains=request.GET.get("palabra_a_buscar"))
+            return render(request, 'plantillas_final/lista_clientes.html', {"clientes": clientes, "resultados_busqueda":True})
+
+    elif request.method == "GET":
+        form_busqueda = BuscarClienteForm()
+        return render(request, 'plantillas_final/buscar_cliente.html', {"form_busqueda": form_busqueda})
 
 def buscar_contacto(request):
-    pass
+    if request.GET.get("palabra_a_buscar") and request.method == "GET":
+        form_busqueda = BuscarContactoForm(request.GET)
+        if form_busqueda.is_valid():
+            contactos = Contacto.objects.filter(nombre__icontains=request.GET.get("palabra_a_buscar"))
+            return render(request, 'plantillas_final/lista_contactos.html', {"contactos": contactos, "resultados_busqueda":True})
+
+    elif request.method == "GET":
+        form_busqueda = BuscarContactoForm()
+        return render(request, 'plantillas_final/buscar_contacto.html', {"form_busqueda": form_busqueda})
 
 def buscar_equipo(request):
-    pass
+    if request.GET.get("palabra_a_buscar") and request.method == "GET":
+        form_busqueda = BuscarEquipoForm(request.GET)
+        if form_busqueda.is_valid():
+            equipos = Equipo.objects.filter(equipo__icontains=request.GET.get("palabra_a_buscar"))
+            return render(request, 'plantillas_final/lista_equipos.html', {"equipos": equipos, "resultados_busqueda":True})
 
-def actualizar_cliente(request, identificador):
-    pass
+    elif request.method == "GET":
+        form_busqueda = BuscarEquipoForm()
+        return render(request, 'plantillas_final/buscar_equipo.html', {"form_busqueda": form_busqueda})
 
-def actualizar_contacto(request, identificador):
-    pass
-
-def actualizar_equipo(request, identificador):
-    pass
 
 def index_cliente(request):
     return render(request, 'plantillas_final/index_cliente.html')
